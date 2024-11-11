@@ -1,4 +1,9 @@
 data
+logs
 results
 model
+*.bak
+.DS_Store
 .ipynb_checkpoints
+__pycache__
+

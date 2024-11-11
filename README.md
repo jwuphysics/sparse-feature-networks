@@ -18,15 +18,15 @@ Install requirements with:
 pip install torch fastai numpy pandas matplotlib cmasher tqdm
 ```
 
-## Project Structure
+## Directory Structure
 
 ```
-project/
+./
 ├── data/
-│   ├── images-sdss/       # SDSS image cutouts in JPG format
-│   └── galaxies.csv       # SDSS catalog
-├── model/                 # model weights
-├── results/               # generated results and figures
+│   ├── images-sdss/
+│   └── galaxies.csv
+├── model/
+├── results/
 └── src/
     ├── config.py          
     ├── dataloader.py     
@@ -38,8 +38,9 @@ project/
 ## Usage
 
 1. Prepare your data:
-   - Place SDSS galaxy images in `data/images-sdss/`
-   - Ensure `galaxies.csv` contains required columns (objID, oh_p50 for metallicity, or line flux measurements for BPT analysis)
+   - Construct `galaxies.csv` with the required columns (`objID`, `oh_p50` for metallicity, or line flux measurements for BPT analysis). We used CASJobs to download galaxies using [this query](https://github.com/cherryquinnlg/agn-convnets/blob/main/data/AGN_K03.sql), and then enforced a signal-to-noise ratio (SNR) cut of 3 for all spectral lines.
+   - Download SDSS galaxy images into `data/images-sdss/`. We used the DESI Legacy Viewer to download via the RESTful interface, e.g. `http://legacysurvey.org/viewer/cutout.jpg?ra={ra}&dec={dec}&pixscale=0.262&layer=sdss&size=160`.
+   
 
 2. Run experiments: 
    - Modify and run the main `python main.py`
@@ -50,7 +51,7 @@ from trainer import ModelTrainer
 config = ExperimentConfig(
     name="galaxy_analysis",
     target="metallicity",
-    k=4,
+    k=2,
     model_dir=Path("../model"),
     results_dir=Path("../results"),
     data_config=DataConfig(),
@@ -77,4 +78,4 @@ This paper has been submitted to AAS journals and will soon appear on arXiv. For
 
 ## License
 
-This project is licensed under the MIT License; please see the LICENSE file for details.
+This project is licensed under the MIT License; please see the `LICENSE` file for details.
