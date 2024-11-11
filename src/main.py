@@ -20,7 +20,7 @@ def main():
             )
 
             trainer = ModelTrainer(experiment_config)
-            trainer.train_model(k)
+            trainer.train_model()
 
 
 if __name__ == "__main__":

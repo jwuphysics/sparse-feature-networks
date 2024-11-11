@@ -34,8 +34,8 @@ class ModelTrainer:
                 color=["#003f5c", "#7a5195", "#ef5675", "#ffa600"]
             )
 
-    def train_model(self, k: int):
-        """Train a model with specific k value."""
+    def train_model(self):
+        """Train a model with specific config."""
         print(f"Training model with k={k}")
 
         # prepare data, model, and learner
@@ -43,7 +43,7 @@ class ModelTrainer:
         dls = get_data_loaders(df, self.config)
 
         n_out = 1 if self.config.target == "metallicity" else 4
-        model = ResNet18TopK(k=k, n_out=n_out, pretrained=True)
+        model = ResNet18TopK(k=self.config.k, n_out=n_out, pretrained=True)
 
         learn = Learner(
             dls,
