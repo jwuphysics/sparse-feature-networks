@@ -61,11 +61,14 @@ class ModelTrainer:
                 self.config.training_config.epochs,
                 self.config.training_config.learning_rate,
             )
-    
-    
+
             torch.save(learn.model, model_path)
         else:
-            learn.model = torch.load(model_path)
+            learn.model = torch.load(
+                model_path,
+                map_location=self.config.training_config.device,
+                weights_only=False,
+            )
 
         # analyze activations and create visualizations
         self.analyze_activations(learn.model, dls, k)
@@ -362,7 +365,6 @@ class ModelTrainer:
         self.save_feature_stats(feature_dict, save_dir)
         if self.config.target == "bpt_lines":
             self.plot_bpt_with_examples(k, feature_dict, activations, dls, save_dir)
-        else: # only if single target like metallicity
+        else:  # only if single target like metallicity
             self.plot_correlation_matrix(activations, feature_dict, save_dir)
             self.save_weights_table(model, feature_dict, save_dir)
-
