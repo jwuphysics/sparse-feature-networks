@@ -4,14 +4,7 @@ We introduce sparse feature networks (SFNets), which contain a simple top-k spar
 
 ## Requirements
 
-- `python>=3.12`
-- `pytorch`
-- `fastai>=2.0`
-- `numpy`
-- `pandas`
-- `matplotlib`
-- `cmasher`
-- `tqdm`
+This software uses [`fastai`](https://github.com/fastai/fastai), built atop `pytorch`, and a few other packages that are commonly found in the data science stack. We've tested that this code works using `fastai==2.7.17` and `torch==2.4.1` on both Linux and macOS.
 
 Install requirements with:
 ```bash
