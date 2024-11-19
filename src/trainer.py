@@ -18,6 +18,7 @@ def RMSE(p, y):
 class ModelTrainer:
     def __init__(self, config: ExperimentConfig):
         self.config = config
+        self.config.model_dir.mkdir(parents=True, exist_ok=True)
         self.results = {}
 
         # set default plotting style
