@@ -1,4 +1,4 @@
-# Learning Galaxy Astrophysics with Interpretable Sparse Feature Networks (SFNets)
+# Insights on Galaxy Evolution from Interpretable Sparse Feature Networks (SFNets)
 
 We introduce sparse feature networks (SFNets), which contain a simple top-k sparsity constraint in their penultimate layers. We show that these SFNets can predict galaxy properties, such as gas metallicity or BPT line ratios, directly from image cutouts. SFNets produce interpretable feature activations, which can then be studied to better understand galaxy formation and evolution.
 
@@ -42,7 +42,7 @@ from config import ExperimentConfig, DataConfig, TrainingConfig
 from trainer import ModelTrainer
 
 config = ExperimentConfig(
-    name="galaxy_analysis",
+    name="metallicity_experiments",
     target="metallicity",
     k=2,
     model_dir=Path("../model"),
@@ -63,7 +63,7 @@ This paper has been submitted to AAS journals and will soon appear on arXiv. For
 ```latex
 @misc{
     author={Wu, John. F.},
-    title={Learning Galaxy Astrophysics from Interpretable Sparse Feature Networks},
+    title={Insights on Galaxy Evolution from Interpretable Sparse Feature Networks},
     year={2024},
     howpublished={Submitted to AAS Journals}
 }
