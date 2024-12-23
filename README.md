@@ -56,6 +56,10 @@ trainer = ModelTrainer(config)
 trainer.train_model()
 ```
 
+## Models and results
+
+We have uploaded our trained model weights and sparse activation results [here](https://www.dropbox.com/scl/fo/8v0wd2r97251c4gb69iax/AAaRdE7QPFSgFOuOtsnGEEE?rlkey=14jj9mt6evtdgcqsx8ogccim9&st=zctk6mzo&dl=0). The optimized `ResNetTopK18` models should be able to reproduce the results shown in the paper.
+
 ## Citation
 
 This paper has been submitted to AAS journals and will soon appear on arXiv. For now, please use the following citation:
