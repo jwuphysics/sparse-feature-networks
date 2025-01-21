@@ -65,11 +65,21 @@ We have uploaded our trained model weights and sparse activation results [here](
 This paper has been submitted to AAS journals and will soon appear on arXiv. For now, please use the following citation:
 
 ```latex
-@misc{
-    author={Wu, John. F.},
-    title={Insights on Galaxy Evolution from Interpretable Sparse Feature Networks},
-    year={2024},
-    howpublished={Submitted to AAS Journals}
+@ARTICLE{2025arXiv250100089W,
+       author = {{Wu}, John F.},
+        title = "{Insights on Galaxy Evolution from Interpretable Sparse Feature Networks}",
+      journal = {arXiv e-prints},
+     keywords = {Astrophysics - Astrophysics of Galaxies, Computer Science - Machine Learning},
+         year = 2024,
+        month = dec,
+          eid = {arXiv:2501.00089},
+        pages = {arXiv:2501.00089},
+          doi = {10.48550/arXiv.2501.00089},
+archivePrefix = {arXiv},
+       eprint = {2501.00089},
+ primaryClass = {astro-ph.GA},
+       adsurl = {https://ui.adsabs.harvard.edu/abs/2025arXiv250100089W},
+      adsnote = {Provided by the SAO/NASA Astrophysics Data System}
 }
 ```
 
