@@ -64,7 +64,9 @@ trainer.train_model()
 
 ## Models and results
 
-We have uploaded our trained model weights and sparse activation results [here](https://www.dropbox.com/scl/fo/8v0wd2r97251c4gb69iax/AAaRdE7QPFSgFOuOtsnGEEE?rlkey=14jj9mt6evtdgcqsx8ogccim9&st=zctk6mzo&dl=0). The optimized `ResNetTopK18` models should be able to reproduce the results shown in the paper.
+The trained model weights can also be found on [Zenodo](https://zenodo.org/records/14712542).
+
+Additionally, we have uploaded our trained model weights and sparse activation results [here](https://www.dropbox.com/scl/fo/8v0wd2r97251c4gb69iax/AAaRdE7QPFSgFOuOtsnGEEE?rlkey=14jj9mt6evtdgcqsx8ogccim9&st=zctk6mzo&dl=0). The optimized `ResNetTopK18` models should be able to reproduce the results shown in the paper.
 
 ## Citation
 
