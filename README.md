@@ -1,3 +1,8 @@
+
+[![arXiv](https://img.shields.io/badge/arXiv-2501.00089-b31b1b.svg)](https://arxiv.org/abs/2501.00089)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14712542.svg)](https://doi.org/10.5281/zenodo.14712542)
+
+
 # Insights on Galaxy Evolution from Interpretable Sparse Feature Networks (SFNets)
 
 We introduce sparse feature networks (SFNets), which contain a simple top-k sparsity constraint in their penultimate layers. We show that these SFNets can predict galaxy properties, such as gas metallicity or BPT line ratios, directly from image cutouts. SFNets produce interpretable feature activations, which can then be studied to better understand galaxy formation and evolution.
@@ -31,10 +36,11 @@ pip install torch fastai numpy pandas matplotlib cmasher tqdm
 ## Usage
 
 1. Prepare your data:
-   - Construct `galaxies.csv` with the required columns (`objID`, `oh_p50` for metallicity, or line flux measurements for BPT analysis). We used CASJobs to download galaxies using [this query](https://github.com/cherryquinnlg/agn-convnets/blob/main/data/AGN_K03.sql), and then enforced a signal-to-noise ratio (SNR) cut of 3 for all spectral lines.
-   - Download SDSS galaxy images into `data/images-sdss/`. We used the DESI Legacy Viewer to download via the RESTful interface, e.g. `http://legacysurvey.org/viewer/cutout.jpg?ra={ra}&dec={dec}&pixscale=0.262&layer=sdss&size=160`.
+   - For convenience, the data can all be obtained via [Zenodo](https://zenodo.org/records/14712542). Simply download the `images-sdss.tar.gz` and unpack it (`tar xzf images-sdss.tar.gz`), and also download `galaxies.csv`.
+   - Alternatively, you can obtain the data directly from the source:
+       - Construct `galaxies.csv` with the required columns (`objID`, `oh_p50` for metallicity, or line flux measurements for BPT analysis). We used CASJobs to download galaxies using [this query](https://github.com/cherryquinnlg/agn-convnets/blob/main/data/AGN_K03.sql), and then enforced a signal-to-noise ratio (SNR) cut of 3 for all spectral lines.
+       - Download SDSS galaxy images into `data/images-sdss/`. We used the DESI Legacy Viewer to download via the RESTful interface, e.g. `http://legacysurvey.org/viewer/cutout.jpg?ra={ra}&dec={dec}&pixscale=0.262&layer=sdss&size=160`.
    
-
 2. Run experiments: 
    - Modify and run the main `python main.py`
 ```python
@@ -62,7 +68,7 @@ We have uploaded our trained model weights and sparse activation results [here](
 
 ## Citation
 
-This paper has been submitted to AAS journals and will soon appear on arXiv. For now, please use the following citation:
+This paper can be found on arXiv. For now, please use the following citation:
 
 ```latex
 @ARTICLE{2025arXiv250100089W,
