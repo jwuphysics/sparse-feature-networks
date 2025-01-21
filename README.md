@@ -75,7 +75,7 @@ This paper can be found on arXiv. For now, please use the following citation:
 ```latex
 @ARTICLE{2025arXiv250100089W,
        author = {{Wu}, John F.},
-        title = "{Insights on Galaxy Evolution from Interpretable Sparse Feature Networks}",
+        title = {Insights on Galaxy Evolution from Interpretable Sparse Feature Networks},
       journal = {arXiv e-prints},
      keywords = {Astrophysics - Astrophysics of Galaxies, Computer Science - Machine Learning},
          year = 2024,
