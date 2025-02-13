@@ -1,4 +1,4 @@
-
+[![arXiv](https://img.shields.io/badge/ApJ-980,_183-ffa600.svg)](https://iopscience.iop.org/article/10.3847/1538-4357/adadec)
 [![arXiv](https://img.shields.io/badge/arXiv-2501.00089-b31b1b.svg)](https://arxiv.org/abs/2501.00089)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14712542.svg)](https://doi.org/10.5281/zenodo.14712542)
 
@@ -73,21 +73,21 @@ Additionally, we have uploaded our trained model weights and sparse activation r
 This paper can be found on arXiv. For now, please use the following citation:
 
 ```latex
-@ARTICLE{2025arXiv250100089W,
+@ARTICLE{JFWu2025,
        author = {{Wu}, John F.},
         title = {Insights on Galaxy Evolution from Interpretable Sparse Feature Networks},
-      journal = {arXiv e-prints},
+      journal = {The Astrophysical Journal},
      keywords = {Astrophysics - Astrophysics of Galaxies, Computer Science - Machine Learning},
-         year = 2024,
-        month = dec,
-          eid = {arXiv:2501.00089},
-        pages = {arXiv:2501.00089},
-          doi = {10.48550/arXiv.2501.00089},
+         year = 2025,
+        month = feb,
+       volume = {980},
+       number = {1},
+          eid = {183},
+        pages = {183},
 archivePrefix = {arXiv},
        eprint = {2501.00089},
  primaryClass = {astro-ph.GA},
-       adsurl = {https://ui.adsabs.harvard.edu/abs/2025arXiv250100089W},
-      adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+          doi = {10.3847/1538-4357/adadec},
 }
 ```
 
