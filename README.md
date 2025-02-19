@@ -73,21 +73,23 @@ Additionally, we have uploaded our trained model weights and sparse activation r
 This paper can be found on arXiv. For now, please use the following citation:
 
 ```latex
-@ARTICLE{JFWu2025,
+@ARTICLE{2025ApJ...980..183W,
        author = {{Wu}, John F.},
-        title = {Insights on Galaxy Evolution from Interpretable Sparse Feature Networks},
-      journal = {The Astrophysical Journal},
-     keywords = {Astrophysics - Astrophysics of Galaxies, Computer Science - Machine Learning},
+        title = "{Insights into Galaxy Evolution from Interpretable Sparse Feature Networks}",
+      journal = {\apj},
+     keywords = {Galaxies, Astronomy image processing, Convolutional neural networks, 573, 2306, 1938, Astrophysics - Astrophysics of Galaxies, Computer Science - Machine Learning},
          year = 2025,
         month = feb,
        volume = {980},
-       number = {1},
+       number = {2},
           eid = {183},
         pages = {183},
+          doi = {10.3847/1538-4357/adadec},
 archivePrefix = {arXiv},
        eprint = {2501.00089},
  primaryClass = {astro-ph.GA},
-          doi = {10.3847/1538-4357/adadec},
+       adsurl = {https://ui.adsabs.harvard.edu/abs/2025ApJ...980..183W},
+      adsnote = {Provided by the SAO/NASA Astrophysics Data System}
 }
 ```
 
