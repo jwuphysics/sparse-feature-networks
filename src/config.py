@@ -8,7 +8,7 @@ class TrainingConfig:
     learning_rate: float = 0.1
     batch_size: int = 64
     epochs: int = 20
-    device: str = "mps"
+    device: str = "cpu"
 
 
 @dataclass
