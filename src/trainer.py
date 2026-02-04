@@ -6,6 +6,10 @@ import matplotlib.gridspec as gridspec
 import cmasher as cmr
 import platform
 
+import torch
+import torch.nn as nn
+import numpy as np
+
 from dataloader import prepare_data, get_data_loaders
 from model import ResNet18TopK
 from config import ExperimentConfig
@@ -37,7 +41,7 @@ class ModelTrainer:
 
     def train_model(self):
         """Train a model with specific config."""
-        print(f"Training model with k={k}")
+        print(f"Training model with k={self.config.k}")
 
         # prepare data, model, and learner
         df = prepare_data(self.config)
@@ -54,7 +58,7 @@ class ModelTrainer:
         )
 
         model_path = (
-            self.config.model_dir / f"resnet18-topk_{k}-{self.config.target}.pth"
+            self.config.model_dir / f"resnet18-topk_{self.config.k}-{self.config.target}.pth"
         )
         if not model_path.exists():
             # train and save model
@@ -72,17 +76,23 @@ class ModelTrainer:
             )
 
         # analyze activations and create visualizations
-        self.analyze_activations(learn.model, dls, k)
+        self.analyze_activations(learn.model, dls, self.config.k)
 
     @staticmethod
     def get_all_activations(loader, model):
-        """Extract activations from the model."""
+        """Extract (sparse) activations used by the linear head."""
         activations = []
+
+        device = next(model.parameters()).device
+        model.eval()
+
         with torch.no_grad():
-            layers = nn.Sequential(*list(model.resnet.children())[:-1], nn.Flatten())
             for xb, _ in tqdm(loader):
-                activations.append(layers(xb))
-        return torch.concat(activations, 0).cpu().numpy()
+                xb = xb.to(device)
+                a = model.sparse_features(xb)
+                activations.append(a.detach().cpu())
+
+        return torch.concat(activations, 0).numpy()
 
     @staticmethod
     def create_feature_dictionary(activations):
@@ -129,7 +139,8 @@ class ModelTrainer:
             o3_hb = dls.valid.items.log_O3 - dls.valid.items.log_Hb
 
             # get and sort by activation strength
-            act_strength = activations[:, feat_idx] / activations[:, feat_idx].max()
+            denom = activations[:, feat_idx].max()
+            act_strength = activations[:, feat_idx] / denom if denom > 0 else activations[:, feat_idx]
 
             sort_idx = np.argsort(act_strength)
             n2_ha = n2_ha.iloc[sort_idx]
@@ -193,7 +204,9 @@ class ModelTrainer:
         """Plot correlation matrix of activations."""
         # Select features with enough galaxies
         non_zero_counts = np.sum(activations != 0, axis=0)
-        normalized_activations = (activations.T / np.linalg.norm(activations, axis=1)).T
+        norms = np.linalg.norm(activations, axis=1)
+        norms[norms == 0] = 1
+        normalized_activations = (activations.T / norms).T
         selected_activations = normalized_activations[:, non_zero_counts > min_galaxies]
 
         activation_indices = np.argwhere(non_zero_counts > min_galaxies).flatten()
